@@ -1,0 +1,111 @@
+import java.util.Scanner;
+class TextLinearEquation{
+	private double a,b,c,d,e,f,g,h;
+	TextLinearEquation(double newA,double newB,double newC,double newD,double newE,double newF,double newG,double newH){
+		a=newA;
+		b=newB;
+		c=newC;
+		d=newD;
+		e=newE;
+		f=newF;
+		g=newG;
+		h=newH;
+	}
+//	public void setA(double newA){
+//		a=newA;
+//	}
+//	public void setB(double newB){
+//		b=newB;
+//	}
+//	public void setC(double newC){
+//		c=newC;
+//	}
+//	public void setD(double newD){
+//		d=newD;
+//	}
+//	public void setE(double newE){
+//		e=newE;
+//	}
+//	public void setF(double newF){
+//		f=newF;
+//	}
+//	public void setG(double newG){
+//		g=newG;
+//	}
+//	public void setH(double newH){
+//		h=newH;
+//	}
+	public double getA(){
+		return a;
+	}
+	public double getB(){
+		return b;
+	}
+	public double getC(){
+		return c;
+	}
+	public double getD(){
+		return d;
+	}
+	public double getE(){
+		return e;
+	}
+	public double getF(){
+		return f;
+	}
+	public double getG(){
+		return g;
+	}
+	public double getH(){
+		return h;
+	}
+	public boolean isSolvable(){
+		if(((b-d)*(g-e)-(c-a)*(f-h))!=0)
+			return true;
+		else
+			return false;
+	}
+	
+	public double getX(){
+		return (((b-d)*a-(a-c)*b)*(g-e)-(c-a)*((f-h)*e-(e-g)*f))/((b-d)*(g-e)-(c-a)*(f-h));
+	}
+	public double getY(){
+		return ((b-d)*((f-h)*e-(e-g)*f)-((b-d)*a-(a-c)*b)*(f-h))/((b-d)*(g-e)-(c-a)*(f-h));
+	}
+}
+
+
+public class LinearEquation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner input=new Scanner(System.in);
+		System.out.println("Enter a:");
+		double a = input.nextDouble();
+		System.out.println("Enter b:");
+		double b = input.nextDouble();
+		System.out.println("Enter c:");
+		double c = input.nextDouble();
+		System.out.println("Enter d:");
+		double d = input.nextDouble();
+		System.out.println("Enter e:");
+		double e = input.nextDouble();
+		System.out.println("Enter f:");
+		double f = input.nextDouble();
+		System.out.println("Enter g:");
+		double g = input.nextDouble();
+		System.out.println("Enter h:");
+		double h = input.nextDouble();
+		input.close();
+		TextLinearEquation t1 = new TextLinearEquation(a,b,c,d,e,f,g,h);
+//		TextLinearEquation t1=new TextLinearEquation(input.nextDouble(),input.nextDouble(),input.nextDouble(),input.nextDouble(),input.nextDouble(),input.nextDouble(),input.nextDouble(),input.nextDouble());
+//		input.close();
+		if(t1.isSolvable()==false)
+			System.out.println("The equation has no solution");
+		else
+			System.out.println("("+t1.getX()+","+t1.getY()+")");
+
+	}
+
+}
