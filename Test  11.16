@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+public class RepeatAdditionQuiz {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int number1=(int)(Math.random()*10);
+		int number2=(int)(Math.random()*10);
+		ArrayList<Integer> list=new ArrayList<>();
+		ArrayList<Integer> same=new ArrayList<>();
+		@SuppressWarnings("resource")
+		Scanner input=new Scanner(System.in);
+		System.out.print("What is "+number1+" + "+number2+"? ");
+		int answer;
+		answer=input.nextInt();
+		list.add(answer);
+
+        int i=0;
+		while(number1+number2!=answer){
+			System.out.print("Wrong answer. Try again. What is "+number1+" + "+number2+"? ");
+			answer=input.nextInt();
+			if(!list.contains(answer))
+				list.add(answer);
+			else 
+			{
+				same.add(answer);
+				System.out.println("You already entered "+same.get(i));
+				i++;
+			}
+				
+		}
+		System.out.println("You got it!");
+
+	}
+
+}
