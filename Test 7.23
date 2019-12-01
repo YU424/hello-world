@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Student100 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int G[]=new int [101];
+		for(int i=1;i<=100;i++)
+		{
+			G[i]=0;
+		}
+		for(int i=1;i<=100;i++)
+		{
+			for(int j=1;j<=100;j++)
+			{
+				if(j%i==0)
+					G[i]++;
+			}
+		}
+		for(int i=1;i<=100;i++)
+		{
+			if(G[i]%2==0)
+				System.out.print(i+" ");
+		}
+
+	}
+
+}
