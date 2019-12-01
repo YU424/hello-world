@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Maopao {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input=new Scanner(System.in);
+		int bubble[]=new int[10];
+		for(int i=0;i<10;i++)
+		{
+			bubble[i]=input.nextInt();
+		}
+		for(int i=0;i<10;i++)
+		{
+			for(int j=0;j<10-i-1;j++)
+			{
+				if(bubble[j]>bubble[j+1])
+				{
+					int temp=bubble[j];
+					bubble[j]=bubble[j+1];
+					bubble[j+1]=temp;
+				}
+			}
+		}
+		for(int i=0;i<10;i++)
+		{
+			System.out.print(bubble[i]+" ");
+		}
+
+	}
+
+}
