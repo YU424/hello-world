@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Merge {
+	static int n,m;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.print("Enter list1: ");
+		
+		Scanner input=new Scanner(System.in);
+		n=input.nextInt();
+		int []Str1=new int [100];
+		int []Str2=new int [100];
+		for(int i=0;i<n;i++)
+		{
+			Str1[i]=input.nextInt();
+		}
+		System.out.print("Enter list2: ");
+		m=input.nextInt();
+		for(int j=0;j<m;j++)
+		{
+			Str2[j]=input.nextInt();
+		}
+		int t=Str1.length;
+		int k=Str1.length;
+		int []result=merge(Str1,Str2);
+		System.out.print("The merged list is ");
+		for(int i=0;i<result.length;i++)
+		{
+			if(result[i]!=0)
+			{
+				for(int j=0;j<result[i];j++)
+				{
+					System.out.print(i+" ");
+				}
+			}
+		}
+
+
+	}
+
+
+public static int[]merge(int []Str1,int []Str2)
+{
+	int max=0;
+	for(int i=0;i<n;i++)
+	{
+		if(Str1[i]>max)
+			max=Str1[i];
+	}
+	for(int j=0;j<m;j++)
+	{
+		if(Str2[j]>max)
+			max=Str2[j];
+	}
+	System.out.println(max);
+	int[]result=new int[max+1];
+	for(int i=0;i<n;i++)
+		result[Str1[i]]++;
+	for(int j=0;j<m;j++)
+		result[Str2[j]]++;
+	return result;
+}
+}
